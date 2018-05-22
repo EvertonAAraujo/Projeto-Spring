@@ -2,10 +2,19 @@ package br.com.everton.spring.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 //Serializable é uma interface que diz que essa classe que os objetos dela poderam ser convertidos para uma sequencia de bites
+//@Entity serve para dizer que essa classe é uma entidade do jpa (Mapeamento objeto relacional - converte objetos para tabela do banco e vice-versa)
+@Entity
 public class Categoria implements Serializable{		
-	private static final long serialVersionUID = 1L;//Por ser serializable precisa dizer qual a versão
+	private static final long serialVersionUID = 1L; //Por ser serializable precisa dizer qual a versão
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY) //Defini a estratégia de geração altomática para geração de id
 	private Integer id;
 	private String nome;
 	
